@@ -1,0 +1,331 @@
+<div class="hero">
+
+  <!-- Background Image -->
+
+  <img
+    [src]="slides[currentSlide].image"
+    class="hero-bg"
+    alt="Hero Image"
+  >
+
+  <!-- Overlay -->
+
+  <div class="hero-overlay"></div>
+
+  <!-- Left Content -->
+
+  <div class="hero-panel">
+
+      <!-- Fixed Top -->
+
+      <div class="hero-header">
+
+          <!-- <div class="counter">
+
+              <span class="active-no">
+                {{slides[currentSlide].number}}
+              </span>
+
+              <span class="slash">/</span>
+
+              <span>07</span>
+
+          </div> -->
+
+          <h1 [innerHTML]="slides[currentSlide].title"></h1>
+
+          <div class="gold-line"></div>
+
+      </div>
+
+      <!-- Description -->
+
+      <div class="hero-description">
+
+          <p class="lead">
+            {{slides[currentSlide].description1}}
+          </p>
+
+          <p>
+            {{slides[currentSlide].description2}}
+          </p>
+
+          <p>
+            {{slides[currentSlide].description3}}
+          </p>
+
+      </div>
+
+      <!-- Bottom -->
+
+      <div class="hero-footer">
+
+          <!-- Arrows -->
+
+          <div class="slider-nav">
+
+              <button class="circle-btn"
+                      (click)="prevSlide()">
+                  ←
+              </button>
+
+              <div class="slide-count">
+
+                  {{slides[currentSlide].number}}
+
+                  <span class="divider"></span>
+
+                  07
+
+              </div>
+
+              <button class="circle-btn"
+                      (click)="nextSlide()">
+                  →
+              </button>
+
+          </div>
+
+          <!-- Dots -->
+
+          <div class="dots">
+
+              <span
+                *ngFor="let slide of slides; let i=index"
+                class="dot"
+                [class.active]="i===currentSlide"
+                (click)="goToSlide(i)">
+              </span>
+
+          </div>
+
+      </div>
+
+  </div>
+
+</div>
+<section class="feature-grid">
+
+    <!-- 01 -->
+    <div class="feature-text">
+        <span class="number">01</span>
+
+        <h3>Integrated Living</h3>
+
+        <p>
+            Centralized control of lighting, audio,
+            video, climate and shading—designed
+            to simplify how the home is experienced.
+        </p>
+
+        <p>
+            Everything works together.
+            Nothing feels complex.
+        </p>
+
+        <div class="bottom">
+            <button>←</button>
+
+            <span>01 <small>— 07</small></span>
+
+            <button>→</button>
+        </div>
+    </div>
+
+    <div class="feature-image">
+        <img src="/slide1.jpg" alt="">
+    </div>
+
+
+    <!-- 02 -->
+    <div class="feature-text">
+        <span class="number">02</span>
+
+        <h3>Lighting & <br>Atmosphere</h3>
+
+        <p>
+            Lighting defines how a space is
+            experienced.
+        </p>
+
+        <p>
+            Layered lighting systems adapt
+            throughout the day—balancing
+            natural light, architectural interest,
+            and mood.
+        </p>
+
+        <div class="bottom">
+            <button>←</button>
+
+            <span>02 <small>— 07</small></span>
+
+            <button>→</button>
+        </div>
+    </div>
+
+    <div class="feature-image">
+        <img src="/slide2.jpg" alt="">
+    </div>
+
+
+    <!-- 03 -->
+    <div class="feature-text">
+        <span class="number">03</span>
+
+        <h3>Private Cinema</h3>
+
+        <p>
+            Dedicated cinema environments
+            designed for performance and
+            immersion.
+        </p>
+
+        <p>
+            Acoustics, lighting and visual
+            calibration are treated as part
+            of the room—delivering a truly
+            cinematic experience.
+        </p>
+
+        <div class="bottom">
+            <button>←</button>
+
+            <span>03 <small>— 07</small></span>
+
+            <button>→</button>
+        </div>
+    </div>
+
+    <div class="feature-image">
+        <img src="/slide3.jpg" alt="">
+    </div>
+
+
+    <!-- 04 -->
+    <div class="feature-text">
+        <span class="number">04</span>
+
+        <h3>Architectural Audio</h3>
+
+        <p>
+            Audio that is present,
+            but never seen.
+        </p>
+
+        <p>
+            Speaker systems are integrated
+            into architecture to deliver
+            consistent, high-quality sound—
+            without visual interruption.
+        </p>
+
+        <div class="bottom">
+            <button>←</button>
+
+            <span>04 <small>— 07</small></span>
+
+            <button>→</button>
+        </div>
+    </div>
+
+    <div class="feature-image">
+        <img src="/slide4.jpg" alt="">
+    </div>
+
+
+    <!-- 05 -->
+    <div class="feature-text">
+        <span class="number">05</span>
+
+        <h3>Security & <br>Privacy</h3>
+
+        <p>
+            Security should feel seamless,
+            not intrusive.
+        </p>
+
+        <p>
+            Systems are designed to provide
+            integrated awareness with
+            automation and day-to-day ease.
+        </p>
+
+        <div class="bottom">
+            <button>←</button>
+
+            <span>05 <small>— 07</small></span>
+
+            <button>→</button>
+        </div>
+    </div>
+
+    <div class="feature-image">
+        <img src="/slide5.jpg" alt="">
+    </div>
+
+
+    <!-- 06 -->
+    <div class="feature-text">
+        <span class="number">06</span>
+
+        <h3>Outdoor <br>Environments</h3>
+
+        <p>
+            Exterior spaces deserve the
+            same level of consideration.
+        </p>
+
+        <p>
+            Audio, lighting and control extend
+            beyond the interior—supporting
+            outdoor living and entertaining
+            integrated with the landscape.
+        </p>
+
+        <div class="bottom">
+            <button>←</button>
+
+            <span>06 <small>— 07</small></span>
+
+            <button>→</button>
+        </div>
+    </div>
+
+    <div class="feature-image">
+        <img src="/slide6.jpg" alt="">
+    </div>
+
+
+    <!-- 07 -->
+    <div class="feature-text">
+        <span class="number">07</span>
+
+        <h3>Performance <br>Lounge</h3>
+
+        <p>
+            Recreation environments designed
+            for performance, practice,
+            and entertainment.
+        </p>
+
+        <p>
+            Advanced simulator technology
+            delivers immersive experiences
+            with precise control and realism.
+        </p>
+
+        <div class="bottom">
+            <button>←</button>
+
+            <span>07 <small>— 07</small></span>
+
+            <button>→</button>
+        </div>
+    </div>
+
+    <div class="feature-image wide-image">
+        <img src="/slide7.jpg" alt="">
+    </div>
+
+</section>

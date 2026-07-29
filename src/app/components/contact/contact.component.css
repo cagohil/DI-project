@@ -1,0 +1,806 @@
+
+/* =====================================
+   CONTACT PAGE
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+.contact-page {
+    width: 100%;
+    max-width: 100%;
+    background: #050505;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.contact-hero {
+    position: relative;
+    min-height: 80svh;
+
+    display: flex;
+    align-items: center;
+
+    background: url('/contact-page-image.jpg') center / cover no-repeat;
+
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, .35) 0%,
+        rgba(0, 0, 0, .20) 40%,
+        rgba(0, 0, 0, .05) 75%,
+        transparent 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 650px;
+
+    padding: 80px clamp(20px, 6vw, 70px);
+}
+
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(42px, 6vw, 78px);
+    font-weight: 400;
+    line-height: 1.05;
+
+    margin: 0 0 clamp(20px, 3vw, 35px);
+}
+
+.gold-line {
+    width: 55px;
+    height: 2px;
+
+    background: #c89b5c;
+
+    margin-bottom: clamp(20px, 3vw, 35px);
+}
+
+.hero-content p {
+    max-width: 560px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.8;
+
+    color: #d4d4d4;
+
+    margin: 0;
+}
+
+
+/* =====================================
+   CONTACT SECTION
+===================================== */
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: clamp(30px, 5vw, 60px);
+
+    padding: clamp(50px, 7vw, 80px)
+             clamp(20px, 6vw, 70px);
+
+    background: #090909;
+}
+
+
+/* =====================================
+   CONTACT FORM
+===================================== */
+
+.contact-form-card {
+    border: 1px solid rgba(255, 255, 255, .1);
+
+    padding: clamp(25px, 5vw, 55px);
+}
+
+.contact-form-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 400;
+
+    margin: 0 0 25px;
+}
+
+.contact-form-card p {
+    font-family: 'Roboto', sans-serif;
+
+    color: #ccc;
+    font-size: clamp(14px, 1.4vw, 16px);
+    line-height: 1.8;
+
+    margin: 0 0 35px;
+}
+
+
+/* FORM ROW */
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+/* INPUTS */
+
+input,
+textarea {
+    width: 100%;
+
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    padding: 16px 18px;
+    margin-bottom: 20px;
+
+    color: #fff;
+
+    outline: none;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+
+    border-radius: 0;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, .55);
+}
+
+input:focus,
+textarea:focus {
+    border-color: #c89b5c;
+}
+
+textarea {
+    height: 140px;
+    resize: none;
+}
+
+
+/* SEND BUTTON */
+
+.send-btn {
+    width: auto;
+
+    background: transparent;
+
+    border: 1px solid #c89b5c;
+
+    color: #c89b5c;
+
+    padding: 17px 35px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.send-btn:hover {
+    background: #c89b5c;
+    color: #fff;
+}
+
+
+/* =====================================
+   CONTACT INFO
+===================================== */
+
+.contact-info {
+    border-left: 1px solid rgba(255, 255, 255, .1);
+
+    padding-left: clamp(30px, 5vw, 60px);
+}
+
+.info-item {
+    margin-bottom: clamp(30px, 5vw, 60px);
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+
+    margin: 0 0 15px;
+}
+
+.info-item p {
+    font-family: 'Roboto', sans-serif;
+
+    color: #d3d3d3;
+
+    font-size: clamp(14px, 1.4vw, 16px);
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* =====================================
+   LOCATION SECTION
+===================================== */
+
+.location-section {
+    display: grid;
+    grid-template-columns: 38% 62%;
+
+    margin: 0 clamp(20px, 6vw, 70px)
+             clamp(40px, 6vw, 70px);
+
+    border: 1px solid rgba(255, 255, 255, .1);
+
+    overflow: hidden;
+}
+
+.location-content {
+    padding: clamp(35px, 6vw, 70px)
+             clamp(25px, 4vw, 50px);
+
+    background: #0a0a0a;
+}
+
+.location-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.15;
+
+    margin: 0 0 30px;
+}
+
+.location-content p {
+    font-family: 'Roboto', sans-serif;
+
+    color: #d4d4d4;
+
+    font-size: clamp(14px, 1.4vw, 16px);
+    line-height: 2;
+
+    margin: 0;
+}
+
+
+/* =====================================
+   MAP
+===================================== */
+
+.map-box {
+    position: relative;
+
+    min-height: 500px;
+}
+
+.map-box img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: brightness(.45);
+}
+
+
+/* =====================================
+   MAP MARKERS
+===================================== */
+
+.map-marker {
+    position: absolute;
+
+    width: clamp(44px, 6vw, 70px);
+    height: clamp(44px, 6vw, 70px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translate(-50%, -50%);
+
+    border: 2px solid #c89b5c;
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #c89b5c;
+
+    text-align: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(9px, 1.1vw, 14px);
+    line-height: 1.1;
+
+    padding: 4px;
+
+    z-index: 2;
+}
+
+
+/* DESKTOP MARKERS */
+
+.pontiac {
+    top: 40%;
+    left: 57%;
+}
+
+.troy {
+    top: 65%;
+    left: 65%;
+}
+
+.Clawson {
+    top: 78%;
+    left: 70%;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    padding: clamp(30px, 5vw, 50px)
+             clamp(20px, 6vw, 70px);
+
+    background: #050505;
+}
+
+.footer-logo-img {
+    display: block;
+
+    width: 220px;
+    max-width: 100%;
+}
+
+.footer-logo p {
+    color: #9f9f9f;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+
+    margin: 25px 0 0;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.socials {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+.socials a {
+    color: #fff;
+
+    font-size: 24px;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.socials a:hover {
+    color: #c89b5c;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 18px;
+    flex-wrap: wrap;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: #bfbfbf;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.footer-links a:hover {
+    color: #c89b5c;
+}
+
+
+/* =====================================
+   TABLET
+   769px - 992px
+===================================== */
+
+@media (max-width: 992px) {
+
+    /* HERO */
+
+    .contact-hero {
+        min-height: 650px;
+    }
+
+    .hero-content {
+        max-width: 680px;
+
+        padding: 80px 40px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(48px, 7vw, 70px);
+    }
+
+    .hero-content p {
+        max-width: 500px;
+        font-size: 16px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+
+        padding: 60px 40px;
+    }
+
+
+    /* CONTACT INFO */
+
+    .contact-info {
+        border-left: none;
+
+        border-top: 1px solid rgba(255, 255, 255, .1);
+
+        padding: 50px 0 0;
+    }
+
+
+    /* LOCATION */
+
+    .location-section {
+        grid-template-columns: 1fr;
+
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .map-box {
+        min-height: 400px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    .footer-right {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .socials,
+    .footer-links {
+        justify-content: center;
+    }
+
+    .footer-logo-img {
+        margin: auto;
+    }
+}
+
+
+/* =====================================
+   MOBILE
+   481px - 768px
+===================================== */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+
+    .contact-hero {
+        min-height: 560px;
+
+        align-items: flex-end;
+
+        background-position: 60% center;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, .25) 0%,
+            rgba(0, 0, 0, .70) 65%,
+            rgba(0, 0, 0, .90) 100%
+        );
+    }
+
+    .hero-content {
+        padding: 70px 22px 65px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(40px, 10vw, 52px);
+        line-height: 1.08;
+    }
+
+    .hero-content h1 br {
+        display: none;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .gold-line {
+        width: 50px;
+        margin-bottom: 22px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-wrapper {
+        padding: 45px 22px;
+    }
+
+    .contact-form-card {
+        padding: 30px 22px;
+    }
+
+    .contact-form-card h2 {
+        font-size: 38px;
+    }
+
+
+    /* FORM */
+
+    .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    input,
+    textarea {
+        font-size: 14px;
+    }
+
+    .send-btn {
+        width: 100%;
+    }
+
+
+    /* CONTACT INFO */
+
+    .contact-info {
+        padding-top: 40px;
+    }
+
+    .info-item {
+        margin-bottom: 40px;
+    }
+
+    .info-item h3 {
+        font-size: 32px;
+    }
+
+
+    /* LOCATION */
+
+    .location-section {
+        grid-template-columns: 1fr;
+
+        margin: 0 22px 45px;
+    }
+
+    .location-content {
+        padding: 40px 25px;
+    }
+
+    .location-content h2 {
+        font-size: 40px;
+    }
+
+    .map-box {
+        min-height: 350px;
+    }
+
+
+    /* MAP MARKERS */
+
+    .pontiac {
+        top: 40%;
+        left: 55%;
+    }
+
+    .troy {
+        top: 64%;
+        left: 63%;
+    }
+
+    .Clawson {
+        top: 77%;
+        left: 68%;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 40px 22px;
+    }
+
+    .footer-logo-img {
+        width: 200px;
+    }
+
+    .socials {
+        gap: 20px;
+    }
+}
+
+
+/* =====================================
+   SMALL MOBILE
+   480px and below
+===================================== */
+
+@media (max-width: 480px) {
+
+    /* HERO */
+
+    .contact-hero {
+        min-height: 520px;
+    }
+
+    .hero-content {
+        padding: 60px 18px 50px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(36px, 10vw, 44px);
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    /* CONTACT */
+
+    .contact-wrapper {
+        padding: 35px 18px;
+    }
+
+    .contact-form-card {
+        padding: 25px 18px;
+    }
+
+    .contact-form-card h2 {
+        font-size: 34px;
+    }
+
+
+    /* LOCATION */
+
+    .location-section {
+        margin: 0 18px 35px;
+    }
+
+    .location-content {
+        padding: 35px 20px;
+    }
+
+    .location-content h2 {
+        font-size: 36px;
+    }
+
+    .location-content p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .map-box {
+        min-height: 300px;
+    }
+
+
+    /* MAP MARKERS */
+
+    .map-marker {
+        width: 48px;
+        height: 48px;
+
+        font-size: 9px;
+    }
+
+    .pontiac {
+        top: 40%;
+        left: 54%;
+    }
+
+    .troy {
+        top: 64%;
+        left: 62%;
+    }
+
+    .Clawson {
+        top: 77%;
+        left: 67%;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 35px 18px;
+    }
+
+    .footer-logo-img {
+        width: 180px;
+    }
+
+    .footer-logo p {
+        font-size: 12px;
+    }
+
+    .footer-links {
+        gap: 10px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,215 @@
+/*==================================
+    COMING SOON
+==================================*/
+
+.coming-soon{
+
+    position:relative;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
+    url('/assets/images/coming-soon-bg.jpg') center center/cover no-repeat;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(200,155,92,.08),
+    transparent 60%);
+
+}
+
+.container{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+.coming-content{
+
+    max-width:700px;
+
+    text-align:center;
+
+    margin:auto;
+
+    color:#fff;
+
+}
+
+.small-title{
+
+    display:inline-block;
+
+    color:#c89b5c;
+
+    letter-spacing:4px;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+
+}
+
+.gold-line{
+
+    width:60px;
+
+    height:2px;
+
+    background:#c89b5c;
+
+    margin:0 auto 35px;
+
+}
+
+.coming-content h1{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:74px;
+
+    line-height:1;
+
+    font-weight:400;
+
+    margin-bottom:30px;
+
+}
+
+.coming-content p{
+
+    max-width:600px;
+
+    margin:0 auto 45px;
+
+    color:rgba(255,255,255,.75);
+
+    font-size:18px;
+
+    line-height:1.9;
+
+}
+
+.back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:16px 34px;
+
+    border:1px solid #c89b5c;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    letter-spacing:2px;
+
+    font-size:12px;
+
+    transition:.35s;
+
+}
+
+.back-btn span{
+
+    color:#c89b5c;
+
+    transition:.35s;
+
+}
+
+.back-btn:hover{
+
+    background:#c89b5c;
+
+    color:#000;
+
+}
+
+.back-btn:hover span{
+
+    color:#000;
+
+    transform:translateX(5px);
+
+}
+
+
+/*==================================
+    Responsive
+==================================*/
+
+@media(max-width:991px){
+
+    .coming-content h1{
+
+        font-size:56px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .coming-content h1{
+
+        font-size:42px;
+
+    }
+
+    .coming-content p{
+
+        font-size:16px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .coming-content h1{
+
+        font-size:34px;
+
+    }
+
+    .coming-content p{
+
+        font-size:15px;
+
+    }
+
+    .back-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+    background:#0a0a0a;
+    font-family:"Inter",sans-serif;
+}
+
+button{
+    font-family:inherit;
+    border:none;
+    outline:none;
+}
+@media(max-width:480px){
+.hero-content{
+  font-size: 82px;
+
+}
+@media(max-width:768px){
+    .hero-content{
+  font-size: 82px;
+
+}
+}
+}
+@media(max-width:992px){
+    .hero-content{
+  font-size: 82px;
+
+}
+}
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+.footer-logo img{
+    width:clamp(90px, 14vw, 150px);
+    height:auto;
+}

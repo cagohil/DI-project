@@ -1,0 +1,424 @@
+/* ==================================
+   HERO SECTION
+================================== */
+
+.hero{
+    position: relative;
+    background: #000;
+    overflow: hidden;
+}
+
+/* HERO IMAGE */
+.hero-header{
+    position: relative;
+    min-height: 100svh;
+    background: url('/Home_image.jpg') center center / cover no-repeat;
+    background-attachment: scroll; /* avoids iOS fixed-bg jank */
+    overflow: hidden;
+}
+
+/* OVERLAY — brighter overall, darker only behind the text column */
+.hero-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.20) 0%,
+    rgba(0, 0, 0, 0.12) 35%,
+    rgba(0, 0, 0, 0.03) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* CONTENT */
+.hero-content{
+    position: relative;
+    z-index: 5;
+    max-width: min(650px, 90%);
+    padding: clamp(90px, 12vw, 160px) clamp(20px, 6vw, 60px) 320px;
+    color: #fff;
+}
+
+.hero-label{
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    text-shadow: 0 2px 12px rgba(0,0,0,.55);
+}
+
+.hero-title{
+    font-family: "Cormorant Garamond", serif;
+    /* fluid scale: never smaller than 32px, never larger than 88px */
+    font-size: clamp(32px, 6vw + 1rem, 88px);
+    font-weight: 400;
+    line-height: .95;
+    margin-bottom: 40px;
+    text-shadow: 0 4px 20px rgba(0,0,0,.55);
+}
+
+.hero-line{
+    width: 110px;
+    height: 1px;
+    background: rgba(255,255,255,.7);
+    margin-bottom: 35px;
+}
+
+.hero-location{
+    font-size: 13px;
+    letter-spacing: 3px;
+    line-height: 1.9;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.9);
+    max-width: 620px;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 10px rgba(0,0,0,.5);
+}
+
+.hero-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 34px;
+    border: 1px solid rgba(255,255,255,.7);
+    background: rgba(0,0,0,.15);
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 12px;
+    transition: .3s;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.hero-btn:hover{
+    background: #fff;
+    color: #000;
+}
+/* ==================================
+   FEATURE BAR
+================================== */
+
+.feature-bar{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    background: rgba(18,18,18,.22);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+
+.feature-bar::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.12),
+        rgba(0,0,0,.45)
+    );
+    z-index:-1;
+}
+
+
+
+.item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 38px 25px;
+}
+
+
+.item:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 90px;
+    background: rgba(255,255,255,.08);
+}
+
+
+.icon{
+    color: #c89b5c;
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+
+.item h4{
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+}
+
+
+.item p{
+    margin: 0;
+    color: rgba(255,255,255,.72);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+
+/* ==================================
+   ULTRA-WIDE / LARGE DESKTOP
+================================== */
+
+@media (min-width:1600px){
+
+    .hero-content{
+        max-width: 780px;
+        padding-bottom: 350px;
+    }
+
+    .item{
+        padding: 46px 30px;
+    }
+
+    .icon{
+        font-size: 34px;
+    }
+}
+
+
+
+/* ==================================
+   MID RANGE (700px–1200px)
+   iPad / Nest Hub sized screens.
+   Extra top spacing so the text
+   block clears the navbar, and a
+   narrower column + deeper overlay
+   so text stays off the bright photo
+================================== */
+
+@media (min-width:700px) and (max-width:1200px){
+
+    .hero-content{
+        max-width: 48%;
+        margin-top: clamp(40px, 6vw, 80px);
+        padding-top: clamp(130px, 14vw, 190px);
+        padding-bottom: 440px;
+    }
+
+    .hero-overlay{
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.55) 0%,
+            rgba(0, 0, 0, 0.32) 45%,
+            rgba(0, 0, 0, 0.08) 75%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+
+    .hero-title{
+        font-size: clamp(28px, 3.6vw + .5rem, 48px);
+        line-height: 1.1;
+        margin-bottom: 24px;
+    }
+
+    .hero-location{
+        max-width: 100%;
+    }
+}
+
+
+
+/* ==================================
+   LARGE TABLET
+================================== */
+
+@media(max-width:1200px){
+
+    .feature-bar{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    /* 5 items in a 2-col grid = 3 rows; let the last item span
+       both columns so it doesn't sit orphaned/off-center */
+    .item:nth-child(5){
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+
+    .item::after{
+        display:none;
+    }
+
+    /* row divider instead of the old side rule */
+    .item:not(:nth-last-child(-n+2))::before{
+        content: "";
+        position: absolute;
+        left: 15%;
+        right: 15%;
+        bottom: 0;
+        height: 1px;
+        background: rgba(255,255,255,.08);
+    }
+
+    .hero-content{
+        padding-bottom: 460px;
+    }
+}
+
+
+
+/* ==================================
+   TABLET
+================================== */
+
+@media(max-width:992px){
+
+    .hero-content{
+        max-width:100%;
+        padding-bottom: 540px;
+    }
+
+    .feature-bar{
+        grid-template-columns:repeat(2,1fr);
+        width:100%;
+    }
+
+    .item{
+        padding:35px 25px;
+    }
+}
+
+
+
+/* ==================================
+   MOBILE
+================================== */
+
+@media(max-width:768px){
+
+    .hero-header{
+        min-height:auto;
+    }
+
+    .hero-content{
+        padding-top: 100px;
+        padding-bottom: 60px;
+        max-width:100%;
+    }
+
+    .hero-label{
+        font-size:12px;
+        letter-spacing:3px;
+    }
+
+    .hero-location{
+        font-size:12px;
+        letter-spacing:2px;
+    }
+
+    .feature-bar{
+        position:relative;
+        bottom:auto;
+        width:100%;
+        grid-template-columns:1fr;
+    }
+
+    /* stacked single column: underline dividers instead of the
+       2-col span rule */
+    .item{
+        padding:30px 20px;
+        grid-column: auto;
+    }
+
+    .item::after,
+    .item::before{
+        display:none;
+    }
+
+    .item:not(:last-child){
+        border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .hero-btn{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* Short/landscape phones: 100svh header + tall content can clip.
+   Drop the forced viewport height so content isn't cropped. */
+@media (max-width:900px) and (orientation:landscape){
+
+    .hero-header{
+        min-height: auto;
+    }
+
+    .hero-content{
+        padding-top: 70px;
+        padding-bottom: 40px;
+    }
+}
+
+
+
+/* ==================================
+   SMALL MOBILE
+================================== */
+
+@media(max-width:480px){
+
+    .hero-content{
+        padding:80px 18px 50px;
+    }
+
+    .hero-location{
+        font-size:11px;
+        letter-spacing:1.5px;
+    }
+
+    .hero-btn{
+        width:100%;
+        justify-content:center;
+        padding:16px;
+    }
+
+    .icon{
+        font-size:26px;
+    }
+}
+
+
+
+/* ==================================
+   FOLD / VERY SMALL SCREENS
+================================== */
+
+@media (max-width:340px){
+
+    .hero-content{
+        padding: 60px 14px 40px;
+    }
+
+    .hero-btn{
+        padding: 14px 20px;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .item h4{
+        font-size: 11px;
+    }
+
+    .item p{
+        font-size: 12px;
+    }
+}

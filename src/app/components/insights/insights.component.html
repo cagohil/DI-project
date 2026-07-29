@@ -1,0 +1,158 @@
+<section class="insights-hero">
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+
+    <p class="section-label">
+      INSIGHTS
+    </p>
+
+    <div class="gold-line"></div>
+
+    <h1>
+      Ideas, perspectives<br>
+      and expertise.
+    </h1>
+
+    <p class="hero-text">
+      Thoughts on technology, design and integration—
+      from our team and industry leaders.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="filter-bar">
+
+<button
+class="filter-btn"
+[ngClass]="{'active':activeCategory==='ALL'}"
+(click)="activeCategory='ALL'">
+
+ALL
+
+</button>
+
+
+<button
+class="filter-btn"
+[ngClass]="{'active':activeCategory==='DESIGN INTEGRATION'}"
+(click)="activeCategory='DESIGN INTEGRATION'">
+
+DESIGN INTEGRATION
+
+</button>
+
+
+<button
+class="filter-btn"
+[ngClass]="{'active':activeCategory==='TECHNOLOGY'}"
+(click)="activeCategory='TECHNOLOGY'">
+
+TECHNOLOGY
+
+</button>
+
+
+<button
+class="filter-btn"
+[ngClass]="{'active':activeCategory==='PROJECT INSIGHTS'}"
+(click)="activeCategory='PROJECT INSIGHTS'">
+
+PROJECT INSIGHTS
+
+</button>
+
+
+<button
+class="filter-btn"
+[ngClass]="{'active':activeCategory==='INDUSTRY PERSPECTIVES'}"
+(click)="activeCategory='INDUSTRY PERSPECTIVES'">
+
+INDUSTRY PERSPECTIVES
+
+</button>
+
+</section>
+
+
+<section class="blog-grid">
+
+<div class="card" *ngFor="let blog of filteredBlogs">
+
+    <img [src]="blog.image">
+
+    <div class="card-content">
+
+        <span>{{blog.category}}</span>
+
+        <h3>{{blog.title}}</h3>
+
+        <p>{{blog.description}}</p>
+        
+      <div class="card-footer">
+        <div class="meta">
+
+            {{blog.date}}
+            •
+            {{blog.read}}
+
+        </div>
+         <button class="arrow-btn">
+          →
+        </button>
+  </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<section class="newsletter">
+
+    <div class="left">
+
+        <div class="newsletter-icon">
+
+            <i class="fa-solid fa-book-open"></i>
+
+        </div>
+
+
+        <div>
+
+            <h2>Stay inspired.</h2>
+
+            <p>
+
+                Subscribe for insights on design,
+                technology and the future of integrated living.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="right">
+
+        <input
+        type="email"
+        placeholder="Enter your email">
+
+        <button>
+
+            SUBSCRIBE
+
+        </button>
+
+    </div>
+
+</section>

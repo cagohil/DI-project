@@ -1,0 +1,272 @@
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 50px;
+
+    z-index:999;
+
+    background:transparent;
+
+    transition:.3s;
+
+}
+
+.navbar.scrolled{
+
+    background:#0a0a0a;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.nav-logo img{
+
+    width:150px;
+
+    display:block;
+}
+
+
+/* LINKS */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.nav-links li{
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:rgba(255,255,255,.85);
+
+    font-size:12px;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#fff;
+}
+
+.nav-links a.active{
+
+    color:#fff;
+}
+
+.nav-links a.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:100%;
+
+    height:1px;
+
+    background:#C9A66B;
+}
+
+
+/* HAMBURGER */
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:0;
+
+    z-index:1001;
+}
+
+.menu-toggle span{
+
+    display:block;
+
+    width:28px;
+
+    height:2px;
+
+    background:#fff;
+
+    margin:6px 0;
+
+    transition:.3s;
+}
+
+
+/* ==========================
+   LARGE TABLET
+========================== */
+
+@media(max-width:1200px){
+
+    .navbar{
+
+        padding:20px 30px;
+    }
+
+    .nav-links{
+
+        gap:18px;
+    }
+
+    .nav-links a{
+
+        font-size:11px;
+
+        letter-spacing:1px;
+    }
+
+}
+
+
+/* ==========================
+   MOBILE MENU
+========================== */
+
+@media(max-width:991px){
+
+    .navbar{
+
+        padding:18px 22px;
+    }
+
+    .nav-logo img{
+
+        width:130px;
+    }
+
+    .menu-toggle{
+
+        display:block;
+    }
+
+
+    .nav-links{
+
+        position:fixed;
+
+        top:0;
+
+        right:-100%;
+
+        width:320px;
+
+        height:100vh;
+
+        background:#0a0a0a;
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        align-items:flex-start;
+
+        padding:60px 40px;
+
+        transition:.35s ease;
+
+        gap:30px;
+
+        box-shadow:-10px 0 40px rgba(0,0,0,.4);
+    }
+
+
+    .nav-links.show{
+
+        right:0;
+    }
+
+    .nav-links a{
+
+        font-size:14px;
+
+        letter-spacing:2px;
+    }
+
+}
+
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+@media(max-width:576px){
+
+    .navbar{
+
+        padding:16px;
+    }
+
+    .nav-logo img{
+
+        width:115px;
+    }
+
+    .nav-links{
+
+        width:100%;
+
+        padding:50px 25px;
+    }
+
+    .nav-links a{
+
+        font-size:13px;
+    }
+
+}

@@ -1,0 +1,219 @@
+<!-- hero.component.html -->
+<section class="hero">
+
+  <div class="hero-header">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <span class="hero-label">
+      PRIVATE RESIDENCE
+    </span>
+
+    <h1 class="hero-title">
+      Integrated Living,<br>
+      Lighting &<br>
+      Architectural Audio
+    </h1>
+
+    <div class="hero-line"></div>
+
+    <p class="hero-location">
+      BLOOMFIELD HILLS, MICHIGAN
+    </p>
+
+  </div>
+
+</div>
+
+  <!-- description / overview -->
+  <section class="hero-description">
+
+  <h2>
+    A fully integrated residential project designed in collaboration
+    with the architect and interior design team.
+  </h2>
+
+  <p>
+    The goal was to create a cohesive environment where lighting,
+    audio and control systems support the architecture without
+    introducing visual or operational complexity.
+  </p>
+
+</section>
+
+  <!-- project overview cards grid (3 cards) -->
+<section class="project-section">
+
+  <!-- First Row -->
+
+  <div class="top-grid">
+
+    <!-- Project Overview -->
+    <div class="overview-card">
+
+      <h3>PROJECT OVERVIEW</h3>
+
+      <div class="overview-columns">
+
+        <div>
+          <h4>Project Type</h4>
+          <p>Private Residence</p>
+
+          <h4>Collaborators</h4>
+          <p>Architect Jeff Dawkins /Designer Amy Miller Weinstein</p>
+       
+
+          <h4>Builder</h4>
+          <p>Sterling Development</p>
+        </div>
+
+        <div>
+          <h4>Completion</h4>
+          <p>2026</p>
+
+          <h4>Scope</h4>
+          <p>
+          Whole-home integration including Lutron Homeworks lighting control, DMF lighting indoor and out, audio, Lutron shading, and centralized control system, Full Swing Simulation.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Project Considerations -->
+
+    <div class="consideration-card">
+
+  <h3>PROJECT CONSIDERATIONS</h3>
+
+  <div class="consideration-grid">
+
+    <div>
+      <p>
+       This project required a lot of coordination to make sure all of the technology enhanced the home without taking away from the architecture or interior design. One of the biggest goals was keeping everything as clean and seamless as possible, with minimal visible equipment and no technology distracting from the overall design.
+      </p>
+
+      <div class="gold-line"></div>
+
+    
+    </div>
+
+    <div>
+        <p>
+    We worked closely with the architect, builder, and interior designer to ensure all wiring, equipment locations, lighting controls, speakers, and user interfaces were integrated into the home properly from the beginning. The systems needed to be easy for the homeowner to use every day while also providing the flexibility and performance expected when entertaining guests. 
+      </p>
+      <div class="gold-line"></div>
+    </div>
+    <div>
+      <p>
+     Lighting was designed to create the right atmosphere throughout the day and evening, while the audio and video systems needed to deliver complete coverage throughout the home without impacting the aesthetics of the space. Careful planning and collaboration throughout the construction process ensured that both the technology and design objectives were achieved without compromise. 
+      </p>
+
+      <div class="gold-line"></div>
+
+      <!-- <p>
+        Lighting needed to transition throughout the day while remaining
+        consistent with the material palette.
+      </p> -->
+    </div>
+
+
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- Second Row -->
+
+  <div class="approach-card">
+
+    <h3>THE APPROACH</h3>
+
+    <div class="approach-grid">
+
+      <div>
+       Technology planning began long before construction was complete, ensuring that infrastructure and system requirements could be thoughtfully integrated into the home's architectural framework.  
+      </div>
+
+      <div>
+       Equipment, wiring pathways, and control interfaces were carefully considered to minimize visual impact while maintaining ease of use.
+      </div>
+
+      <div>
+       Every detail—from lighting control and motorized shading to speaker placement and entertainment systems—was evaluated in relation to the surrounding design, creating an experience that enhances the home without competing with it. 
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="systems-section">
+
+  <h3 class="section-title">
+    INTEGRATED SYSTEMS
+  </h3>
+
+  <div class="systems-grid">
+
+    <div class="thumb-card" *ngFor="let item of systems" (click)="openLightbox(item)">
+      <img [src]="item.img" [alt]="item.title">
+      <div class="thumb-overlay">
+        <h4>{{ item.title }}</h4>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Lightbox overlay -->
+<div class="lightbox-overlay" *ngIf="selectedItem" (click)="closeLightbox()">
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+    <img [src]="selectedItem.img" [alt]="selectedItem.title">
+    <div class="lightbox-caption">
+      <h4>{{ selectedItem.title }}</h4>
+      <p>{{ selectedItem.description }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox overlay -->
+<!-- <div class="lightbox-overlay" *ngIf="selectedItem" (click)="closeLightbox()">
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+    <img [src]="selectedItem.img" alt="">
+    <div class="lightbox-caption">
+      <h4>{{ selectedItem.title }}</h4>
+      <p>{{ selectedItem.description }}</p>
+    </div>
+  </div>
+</div> -->
+<!-- result / closing statement -->
+ <section class="result-section">
+
+    <span class="result-label">
+
+      THE RESULT
+
+    </span>
+
+    <h2>
+
+      The result is a home where technology is fully blended into the architecture—supporting how the space is used without drawing attention to itself.
+
+    </h2>
+
+    <p>
+      Systems operate intuitively, lighting enhances the environment throughout the day, and audio is immersive. The experience is controlled, seamless, and aligned with the design vision.
+    </p>
+
+</section>
+ 
+

@@ -1,0 +1,150 @@
+<section class="projects-section">
+
+    <div class="container-fluid px-4 px-lg-5">
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+      <div class="projects-hero">
+
+    <div class="hero-left">
+
+        <span class="small-title">
+            PROJECTS
+        </span>
+
+        <h1>
+             Thoughtful design. <br>
+            Technology with purpose. 
+        </h1>
+
+    </div>
+
+    <div class="hero-right">
+
+        <p>
+           Every project reflects a shared vision between architects, designers, builders, and Digital Interiors, resulting in spaces where technology becomes a natural part of the design.
+        </p>
+
+    </div>
+
+</div>
+        <!-- =========================
+             PROJECT GRID
+        ========================== -->
+
+     <div class="project-grid">
+
+    <article class="project-item"
+             *ngFor="let project of projects">
+
+        <div class="image">
+
+            <img [src]="project.image"
+                 [alt]="project.title">
+
+        </div>
+
+        <div class="content">
+
+            <span class="category">
+                {{project.category}}
+            </span>
+
+            <h2>
+                {{project.title}}
+            </h2>
+
+            <p>
+                {{project.description}}
+            </p>
+
+            <div class="bottom">
+
+                <span>
+                    {{project.location}}
+                </span>
+
+                <a [routerLink]="project.link">
+                    VIEW PROJECT
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+     BOTTOM CTA
+=========================== -->
+
+<section class="project-cta">
+
+    <div class="container-fluid px-lg-5 px-4">
+
+        <div class="cta-wrapper">
+
+            <!-- Left -->
+
+            <div class="cta-left">
+
+                <span class="cta-label">
+                    START YOUR PROJECT
+                </span>
+
+                <h2>
+                    Planning a similar project?
+                </h2>
+
+                <p>
+                    We collaborate with homeowners,
+                    architects and designers to
+                    integrate technology from the
+                    earliest stages of design.
+                </p>
+
+            </div>
+
+
+            <!-- Divider -->
+
+            <div class="cta-divider"></div>
+
+
+            <!-- Right -->
+
+            <div class="cta-right">
+
+                <h2>
+
+                    Let's create
+                    something exceptional
+                    together.
+
+                </h2>
+
+                <a routerLink="/contact" class="cta-btn">
+
+                    START A PROJECT
+
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
