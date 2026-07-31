@@ -6,15 +6,26 @@
     position: relative;
     background: #000;
     overflow: hidden;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+
+    /* moved here from .hero-header — now spans the FULL hero,
+       including the area behind the feature bar, so the bar's
+       backdrop-filter has the photo to blur instead of solid black */
+    background-image: url('/Home_image.jpg'); /* re-cropped 2650x1490 */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-/* HERO IMAGE */
+/* HERO IMAGE CONTAINER — no longer owns the background itself,
+   it's just a positioning context for the overlay + text */
 .hero-header{
+    flex: 1 1 auto;
+    min-height: 0;
     position: relative;
-    min-height: 100svh;
-    background: url('/Home_image.jpg') center center / cover no-repeat;
-    background-attachment: scroll; /* avoids iOS fixed-bg jank */
-    overflow: hidden;
+    background: transparent;
 }
 
 /* OVERLAY — brighter overall, darker only behind the text column */
@@ -30,31 +41,39 @@
   );
 }
 
-/* CONTENT */
+/* CONTENT — now vertically centered in whatever space is left,
+   instead of guessing padding-bottom to clear the feature bar */
 .hero-content{
-    position: relative;
+    position: absolute;
+    top: clamp(90px, 12vh, 140px); /* clears the navbar instead of centering through it */
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: min(650px, 90%);
-    padding: clamp(90px, 12vw, 160px) clamp(20px, 6vw, 60px) 320px;
+    padding: 0 clamp(20px, 6vw, 60px) clamp(20px, 4vh, 60px);
     color: #fff;
 }
-
 .hero-label{
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 1.8;
-    margin-bottom: 35px;
+    margin-bottom: clamp(14px, 2.5vh, 35px);
     text-shadow: 0 2px 12px rgba(0,0,0,.55);
 }
 
 .hero-title{
     font-family: "Cormorant Garamond", serif;
-    /* fluid scale: never smaller than 32px, never larger than 88px */
-    font-size: clamp(32px, 6vw + 1rem, 88px);
+    /* fluid scale, now also capped by viewport height so a
+       2-line wrap can never push past the available space */
+    font-size: clamp(22px, 3vh + 0.9vw, 60px);
     font-weight: 400;
-    line-height: .95;
-    margin-bottom: 40px;
+    line-height: 1.05;
+    margin-bottom: clamp(14px, 2.5vh, 40px);
     text-shadow: 0 4px 20px rgba(0,0,0,.55);
 }
 
@@ -62,17 +81,17 @@
     width: 110px;
     height: 1px;
     background: rgba(255,255,255,.7);
-    margin-bottom: 35px;
+    margin-bottom: clamp(14px, 2.5vh, 35px);
 }
 
 .hero-location{
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 3px;
     line-height: 1.9;
     text-transform: uppercase;
     color: rgba(255,255,255,.9);
     max-width: 620px;
-    margin-bottom: 40px;
+    margin-bottom: clamp(14px, 2.5vh, 40px);
     text-shadow: 0 2px 10px rgba(0,0,0,.5);
 }
 
@@ -80,15 +99,16 @@
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    padding: 18px 34px;
+    padding: 18px 24px;
     border: 1px solid rgba(255,255,255,.7);
     background: rgba(0,0,0,.15);
     color: #fff;
     letter-spacing: 2px;
-    font-size: 12px;
+    font-size: 11px;
     transition: .3s;
     cursor: pointer;
     white-space: nowrap;
+    align-self: flex-start;
 }
 
 .hero-btn:hover{
@@ -100,9 +120,8 @@
 ================================== */
 
 .feature-bar{
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    position: relative; /* no longer absolute — takes real space in the flex column */
+    flex-shrink: 0;
     width: 100%;
     z-index: 10;
     display: grid;
@@ -125,15 +144,12 @@
     );
     z-index:-1;
 }
-
-
-
 .item{
     position: relative;
     display: flex;
     align-items: center;
     gap: 18px;
-    padding: 38px 25px;
+    padding: clamp(18px, 2.5vh, 38px) 25px;
 }
 
 
@@ -141,24 +157,24 @@
     content: "";
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 20%;
     transform: translateY(-50%);
     width: 1px;
-    height: 90px;
+    height: 40px;
     background: rgba(255,255,255,.08);
 }
 
 
 .icon{
     color: #c89b5c;
-    font-size: 30px;
+    font-size: 26px;
     flex-shrink: 0;
 }
 
 
 .item h4{
     color: #fff;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 1.8px;
     margin-bottom: 10px;
 }
@@ -167,7 +183,7 @@
 .item p{
     margin: 0;
     color: rgba(255,255,255,.72);
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.7;
 }
 
@@ -181,15 +197,14 @@
 
     .hero-content{
         max-width: 780px;
-        padding-bottom: 350px;
     }
 
     .item{
-        padding: 46px 30px;
+        padding: clamp(24px, 3vh, 46px) 30px;
     }
 
     .icon{
-        font-size: 34px;
+        font-size: 30px;
     }
 }
 
@@ -198,9 +213,7 @@
 /* ==================================
    MID RANGE (700px–1200px)
    iPad / Nest Hub sized screens.
-   Extra top spacing so the text
-   block clears the navbar, and a
-   narrower column + deeper overlay
+   Narrower column + deeper overlay
    so text stays off the bright photo
 ================================== */
 
@@ -208,9 +221,6 @@
 
     .hero-content{
         max-width: 48%;
-        margin-top: clamp(40px, 6vw, 80px);
-        padding-top: clamp(130px, 14vw, 190px);
-        padding-bottom: 440px;
     }
 
     .hero-overlay{
@@ -224,9 +234,7 @@
     }
 
     .hero-title{
-        font-size: clamp(28px, 3.6vw + .5rem, 48px);
-        line-height: 1.1;
-        margin-bottom: 24px;
+        font-size: clamp(20px, 2.5vh + 0.9vw, 36px);
     }
 
     .hero-location{
@@ -267,10 +275,6 @@
         height: 1px;
         background: rgba(255,255,255,.08);
     }
-
-    .hero-content{
-        padding-bottom: 460px;
-    }
 }
 
 
@@ -283,7 +287,6 @@
 
     .hero-content{
         max-width:100%;
-        padding-bottom: 540px;
     }
 
     .feature-bar{
@@ -292,43 +295,63 @@
     }
 
     .item{
-        padding:35px 25px;
+        padding: clamp(16px, 2vh, 35px) 25px;
     }
 }
 
 
 
 /* ==================================
-   MOBILE
+   MOBILE — allow natural scroll instead
+   of forcing everything into one screen
 ================================== */
 
 @media(max-width:768px){
 
-    .hero-header{
-        min-height:auto;
+   .hero{
+        height: auto;
+        display: block;
+        background-image: none;   /* stop the parent from stretching the photo */
     }
 
-    .hero-content{
-        padding-top: 100px;
-        padding-bottom: 60px;
-        max-width:100%;
+    .hero-header{
+        min-height: 100svh;
+        flex: none;
+        display: flex;
+        align-items: center;
+        background-image: url('/Home_image_mobile.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
+    .hero-content{
+        position: relative;
+        top:auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        max-width:100%;
+        justify-content: center;
+    }
+    
 
     .hero-label{
-        font-size:12px;
+        font-size:11px;
         letter-spacing:3px;
     }
 
+    .hero-title{
+        font-size: clamp(24px, 7vw, 40px);
+    }
+
     .hero-location{
-        font-size:12px;
+        font-size:11px;
         letter-spacing:2px;
     }
 
     .feature-bar{
-        position:relative;
-        bottom:auto;
-        width:100%;
-        grid-template-columns:1fr;
+        background: #121212;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
     /* stacked single column: underline dividers instead of the
@@ -354,8 +377,7 @@
 }
 
 
-/* Short/landscape phones: 100svh header + tall content can clip.
-   Drop the forced viewport height so content isn't cropped. */
+/* Short/landscape phones */
 @media (max-width:900px) and (orientation:landscape){
 
     .hero-header{
@@ -377,11 +399,15 @@
 @media(max-width:480px){
 
     .hero-content{
-        padding:80px 18px 50px;
+        padding:20px 18px;
+    }
+
+    .hero-title{
+        font-size: clamp(20px, 8vw, 34px);
     }
 
     .hero-location{
-        font-size:11px;
+        font-size:10px;
         letter-spacing:1.5px;
     }
 
@@ -392,7 +418,7 @@
     }
 
     .icon{
-        font-size:26px;
+        font-size:22px;
     }
 }
 
@@ -405,20 +431,24 @@
 @media (max-width:340px){
 
     .hero-content{
-        padding: 60px 14px 40px;
+        padding: 20px 14px;
+    }
+
+    .hero-title{
+        font-size: clamp(18px, 8vw, 28px);
     }
 
     .hero-btn{
         padding: 14px 20px;
-        font-size: 11px;
+        font-size: 10px;
         letter-spacing: 1px;
     }
 
     .item h4{
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .item p{
-        font-size: 12px;
+        font-size: 11px;
     }
 }

@@ -1,4 +1,3 @@
-
 /* ==================================
    HERO SECTION
 ================================== */
@@ -6,7 +5,7 @@
 .hero {
     position: relative;
     width: 100%;
-    min-height: 100svh;
+    height: 100svh;
     overflow: hidden;
     background: #000;
 }
@@ -19,16 +18,12 @@
 .hero-bg {
     position: absolute;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center;
-
     z-index: 1;
 }
-
 
 .hero-overlay {
     position: absolute;
@@ -37,11 +32,11 @@
 
     background: linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.88) 28%,
-        rgba(0, 0, 0, 0.60) 40%,
-        rgba(0, 0, 0, 0.20) 48%,
-        rgba(0, 0, 0, 0) 54%
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.80) 16%,
+        rgba(0, 0, 0, 0.45) 26%,
+        rgba(0, 0, 0, 0.15) 34%,
+        rgba(0, 0, 0, 0) 40%
     );
 }
 
@@ -51,14 +46,20 @@
 ================================== */
 
 .hero-panel {
-    position: relative;
-
+    position: absolute;
+    top: clamp(80px, 12vh, 140px);
+    left: 0;
+    bottom: 0;
     z-index: 10;
 
     width: 100%;
     max-width: 700px;
 
-    padding: 120px 40px 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 40px 60px 70px;
 
     color: #fff;
 }
@@ -70,13 +71,9 @@
 
 .hero-header h1 {
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: clamp(42px, 5vw, 64px);
-
+    font-size: clamp(30px, 3.2vh + 1.5vw, 64px);
     font-weight: 400;
-
     line-height: 1.05;
-
     margin: 0;
 }
 
@@ -88,10 +85,8 @@
 .gold-line {
     width: 60px;
     height: 2px;
-
     background: #C89B52;
-
-    margin: 20px 0;
+    margin: clamp(12px, 2vh, 20px) 0;
 }
 
 
@@ -101,21 +96,17 @@
 
 .counter {
     font-size: 18px;
-
     margin-bottom: 30px;
-
     letter-spacing: 1px;
 }
 
 .active-no {
     color: #C89B52;
-
     font-weight: 600;
 }
 
 .slash {
     margin: 0 10px;
-
     color: #888;
 }
 
@@ -125,25 +116,21 @@
 ================================== */
 
 .hero-description {
-    margin-top: 30px;
+    margin-top: clamp(14px, 2.5vh, 30px);
+    overflow: hidden;
 }
 
 .hero-description p {
     color: #d0d0d0;
-
     font-family: 'Roboto', sans-serif;
-
-    font-size: 16px;
-
-    line-height: 1.8;
-
-    margin: 0 0 18px;
+    font-size: clamp(13px, 1.6vh + 0.2vw, 16px);
+    line-height: 1.7;
+    margin: 0 0 clamp(10px, 1.6vh, 18px);
 }
 
 .hero-description .lead {
     color: #fff !important;
-
-    font-size: 18px !important;
+    font-size: clamp(15px, 1.8vh + 0.2vw, 18px) !important;
 }
 
 
@@ -152,39 +139,29 @@
 ================================== */
 
 .hero-footer {
-    margin-top: 35px;
+    margin-top: clamp(16px, 3vh, 35px);
 }
 
 .slider-nav {
     display: flex;
-
     align-items: center;
-
     gap: 22px;
 }
 
 .circle-btn {
     width: 48px;
     height: 48px;
-
     flex-shrink: 0;
-
     border-radius: 50%;
-
     border: 1px solid #C89B52;
-
     background: transparent;
-
     color: #C89B52;
-
     cursor: pointer;
-
     transition: .3s ease;
 }
 
 .circle-btn:hover {
     background: #C89B52;
-
     color: #000;
 }
 
@@ -194,60 +171,47 @@
 
 .divider {
     display: inline-block;
-
     width: 45px;
     height: 1px;
-
     background: #666;
-
     margin: 0 12px;
 }
 
 .dots {
     display: flex;
-
     gap: 14px;
-
     margin-top: 22px;
 }
 
 .dot {
     width: 8px;
     height: 8px;
-
     border-radius: 50%;
-
     background: #fff;
-
     opacity: .35;
-
     cursor: pointer;
-
     transition: .3s ease;
 }
 
 .dot.active {
     background: #C89B52;
-
     opacity: 1;
-
     transform: scale(1.2);
 }
 
 
 /* ==================================
    FEATURE GRID
+   Hidden on desktop/tablet — only
+   shown on mobile (see media query
+   below). This replaces the sliding
+   hero with static blocks on mobile.
 ================================== */
 
 .feature-grid {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1.2fr
-        1fr 1.2fr;
-
+    display: none;   /* CHANGED — off by default (desktop/tablet) */
+    grid-template-columns: 1fr 1.2fr 1fr 1.2fr;
     background: #050505;
-
     border-top: 1px solid rgba(255, 255, 255, .08);
 }
 
@@ -258,57 +222,37 @@
 
 .feature-text {
     display: flex;
-
     flex-direction: column;
-
     justify-content: space-between;
-
     min-height: 340px;
-
     padding: 40px;
-
     background: #0b0b0b;
-
     color: #fff;
-
     border-right: 1px solid rgba(255, 255, 255, .08);
-
     border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .number {
     display: block;
-
     color: #C89B52;
-
     font-size: 28px;
-
     margin-bottom: 20px;
 }
 
 .feature-text h3 {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: clamp(32px, 3vw, 44px);
-
     font-weight: 400;
-
     line-height: 1.1;
-
     color: #fff;
-
     margin: 0 0 25px;
 }
 
 .feature-text p {
     color: #cfcfcf;
-
     font-family: 'Roboto', sans-serif;
-
     font-size: 15px;
-
     line-height: 1.8;
-
     margin: 0 0 18px;
 }
 
@@ -319,52 +263,37 @@
 
 .bottom {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     gap: 15px;
-
     margin-top: 20px;
 }
 
 .bottom button {
     width: 40px;
     height: 40px;
-
     flex-shrink: 0;
-
     border-radius: 50%;
-
     border: 1px solid #C89B52;
-
     background: transparent;
-
     color: #C89B52;
-
     cursor: pointer;
-
     transition: .3s ease;
 }
 
 .bottom button:hover {
     background: #C89B52;
-
     color: #000;
 }
 
 .bottom span {
     color: #fff;
-
     font-size: 14px;
-
     letter-spacing: 2px;
 }
 
 .bottom small {
     color: #888;
-
     font-size: 12px;
 }
 
@@ -375,22 +304,16 @@
 
 .feature-image {
     min-height: 340px;
-
     overflow: hidden;
-
     border-right: 1px solid rgba(255, 255, 255, .08);
-
     border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .feature-image img {
     display: block;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     transition: transform .5s ease;
 }
 
@@ -407,24 +330,17 @@
 
     .hero-panel {
         max-width: 800px;
-
         padding-left: 100px;
-    }
-
-    .hero-header h1 {
-        font-size: 68px;
     }
 
     .feature-text {
         min-height: 400px;
-
         padding: 55px;
     }
 
     .feature-image {
         min-height: 400px;
     }
-
 }
 
 
@@ -435,49 +351,17 @@
 
 @media (max-width: 991px) {
 
-    /* HERO */
-
     .hero {
-        min-height: 750px;
+        height: 100svh;
     }
 
     .hero-panel {
         max-width: 650px;
-
-        padding: 100px 40px 60px;
-    }
-
-    .hero-header h1 {
-        font-size: 54px;
-
-        line-height: 1.05;
-    }
-
-    .hero-description {
-        margin-top: 25px;
-    }
-
-    .hero-description p {
-        font-size: 15px;
-
-        line-height: 1.8;
-    }
-
-    .hero-description .lead {
-        font-size: 17px !important;
-    }
-
-
-    /* FEATURE GRID */
-
-    .feature-grid {
-        grid-template-columns:
-            1fr 1fr;
+        padding: 0 40px 50px;
     }
 
     .feature-text {
         min-height: 400px;
-
         padding: 35px;
     }
 
@@ -491,10 +375,8 @@
 
     .feature-text p {
         font-size: 14px;
-
         line-height: 1.8;
     }
-
 }
 
 
@@ -505,92 +387,23 @@
 
 @media (max-width: 768px) {
 
-    /* HERO */
-
     .hero {
-        min-height: auto;
-
-        padding: 0;
+        display: none;          /* ADDED — removes the sliding hero on mobile */
     }
-
-    .hero-overlay {
-        background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, .85) 0%,
-            rgba(0, 0, 0, .72) 100%
-        );
-    }
-
-    .hero-panel {
-        max-width: 100%;
-
-        padding: 100px 25px 60px;
-    }
-
-    .hero-header h1 {
-        font-size: 46px;
-
-        line-height: 1.08;
-    }
-
-    .gold-line {
-        width: 55px;
-
-        margin: 20px 0;
-    }
-
-    .hero-description {
-        margin-top: 25px;
-    }
-
-    .hero-description p {
-        font-size: 15px;
-
-        line-height: 1.8;
-    }
-
-    .hero-description .lead {
-        font-size: 17px !important;
-    }
-
-
-    /* SLIDER */
-
-    .hero-footer {
-        margin-top: 30px;
-    }
-
-    .slider-nav {
-        gap: 16px;
-    }
-
-    .circle-btn {
-        width: 44px;
-        height: 44px;
-    }
-
-    .slide-count {
-        font-size: 16px;
-    }
-
-
-    /* FEATURES */
 
     .feature-grid {
+        display: grid;           /* ADDED — shows static blocks on mobile */
         grid-template-columns: 1fr;
     }
 
     .feature-text {
         min-height: auto;
-
         padding: 40px 25px;
     }
 
     .feature-image {
         width: 100%;
-
         height: 350px;
-
         min-height: 0;
     }
 
@@ -601,7 +414,6 @@
     .feature-text p {
         font-size: 15px;
     }
-
 }
 
 
@@ -612,98 +424,23 @@
 
 @media (max-width: 480px) {
 
-    /* HERO */
-
-    .hero-overlay {
-        background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, .92),
-            rgba(0, 0, 0, .78)
-        );
-    }
-
-    .hero-panel {
-        padding: 80px 18px 45px;
-    }
-
-    .hero-header h1 {
-        font-size: 36px;
-
-        line-height: 1.1;
-    }
-
-    .hero-description {
-        margin-top: 20px;
-    }
-
-    .hero-description p {
-        font-size: 14px;
-
-        line-height: 1.75;
-    }
-
-    .hero-description .lead {
-        font-size: 16px !important;
-    }
-
-
-    /* SLIDER */
-
-    .hero-footer {
-        margin-top: 25px;
-    }
-
-    .slider-nav {
-        gap: 12px;
-    }
-
-    .circle-btn {
-        width: 40px;
-        height: 40px;
-
-        font-size: 14px;
-    }
-
-    .slide-count {
-        font-size: 14px;
-    }
-
-    .divider {
-        width: 30px;
-
-        margin: 0 8px;
-    }
-
-    .dots {
-        gap: 10px;
-
-        margin-top: 18px;
-    }
-
-
-    /* FEATURE */
-
     .feature-text {
         padding: 30px 20px;
     }
 
     .number {
         font-size: 24px;
-
         margin-bottom: 15px;
     }
 
     .feature-text h3 {
         font-size: 32px;
-
         line-height: 1.15;
-
         margin-bottom: 20px;
     }
 
     .feature-text p {
         font-size: 14px;
-
         line-height: 1.75;
     }
 
@@ -719,7 +456,6 @@
         width: 38px;
         height: 38px;
     }
-
 }
 
 
@@ -729,18 +465,6 @@
 ================================== */
 
 @media (max-width: 360px) {
-
-    .hero-panel {
-        padding: 70px 16px 40px;
-    }
-
-    .hero-header h1 {
-        font-size: 32px;
-    }
-
-    .hero-description p {
-        font-size: 13px;
-    }
 
     .feature-text {
         padding: 25px 16px;
@@ -753,18 +477,4 @@
     .feature-image {
         height: 240px;
     }
-
-}
-@media (max-width: 768px) {
-
-    .hero-overlay {
-        background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.90) 0%,
-            rgba(0, 0, 0, 0.70) 40%,
-            rgba(0, 0, 0, 0.25) 70%,
-            rgba(0, 0, 0, 0.05) 100%
-        );
-    }
-
 }

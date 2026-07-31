@@ -153,25 +153,35 @@
   </div>
 
 </section>
+
+<!-- Photo gallery — horizontal scrolling thumbnail strip -->
+<!-- Photo gallery — horizontal scrolling thumbnail strip -->
 <section class="systems-section">
 
-  <h3 class="section-title">
-    INTEGRATED SYSTEMS
-  </h3>
+  <div class="systems-scroll-wrap">
 
-  <div class="systems-grid">
+    <button class="scroll-arrow left" (click)="scrollGallery(-1)" aria-label="Scroll left">
+      ←
+    </button>
 
-    <div class="thumb-card" *ngFor="let item of systems" (click)="openLightbox(item)">
-      <img [src]="item.img" [alt]="item.title">
-      <div class="thumb-overlay">
-        <h4>{{ item.title }}</h4>
+    <div class="systems-scroll" #galleryScroll>
+
+      <div class="thumb-card" *ngFor="let item of systems" (click)="openLightbox(item)">
+        <img [src]="item.img" [alt]="item.title">
+        <div class="thumb-overlay">
+          <h4>{{ item.title }}</h4>
+        </div>
       </div>
+
     </div>
+
+    <button class="scroll-arrow right" (click)="scrollGallery(1)" aria-label="Scroll right">
+      →
+    </button>
 
   </div>
 
 </section>
-
 <!-- Lightbox overlay -->
 <div class="lightbox-overlay" *ngIf="selectedItem" (click)="closeLightbox()">
   <div class="lightbox-content" (click)="$event.stopPropagation()">
@@ -184,17 +194,6 @@
   </div>
 </div>
 
-<!-- Lightbox overlay -->
-<!-- <div class="lightbox-overlay" *ngIf="selectedItem" (click)="closeLightbox()">
-  <div class="lightbox-content" (click)="$event.stopPropagation()">
-    <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
-    <img [src]="selectedItem.img" alt="">
-    <div class="lightbox-caption">
-      <h4>{{ selectedItem.title }}</h4>
-      <p>{{ selectedItem.description }}</p>
-    </div>
-  </div>
-</div> -->
 <!-- result / closing statement -->
  <section class="result-section">
 
@@ -215,5 +214,3 @@
     </p>
 
 </section>
- 
-

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterModule } from "@angular/router";
+import { ViewChild, ElementRef } from '@angular/core';
 interface SystemItem {
   img: string;
   title: string;
@@ -14,7 +15,15 @@ interface SystemItem {
   templateUrl: './project-page1.component.html',
   styleUrl: './project-page1.component.css'
 })
+
 export class ProjectPage1Component {
+@ViewChild('galleryScroll') galleryScroll!: ElementRef<HTMLDivElement>;
+
+  scrollGallery(direction: number) {
+  const el = this.galleryScroll.nativeElement;
+  const scrollAmount = el.clientWidth * 0.6; // scrolls ~60% of visible width per click
+  el.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
 systems: SystemItem[] = [
   {
     img: '/thumbnail_gallery/Backyard Day 1 - W.jpg',

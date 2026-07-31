@@ -100,7 +100,6 @@
     gap:22px;
 
 }
-
 .project-item{
 
     background:#111;
@@ -111,6 +110,8 @@
 
     overflow:hidden;
 
+    display:flex;              /* NEW */
+    flex-direction:column;     /* NEW — lets .content grow to fill leftover row height */
 }
 
 .project-item:hover{
@@ -118,9 +119,7 @@
     transform:translateY(-6px);
 
     border-color:#c89b5c;
-
 }
-
 
 /*==================================
     IMAGE
@@ -158,6 +157,9 @@
 
     padding:22px;
 
+    display:flex;              /* NEW */
+    flex-direction:column;     /* NEW */
+    flex:1;                    /* NEW — content fills remaining card height so .bottom has room to sit at the base */
 }
 
 .category{
@@ -193,9 +195,7 @@
     line-height:1.7;
 
     min-height:55px;
-
-}
-/*==================================
+}/*==================================
     FOOTER
 ==================================*/
 .bottom{
@@ -206,14 +206,12 @@
 
     align-items:center;
 
-    margin-top:22px;
+    margin-top:auto;           /* CHANGED from margin-top:22px — pins this to the bottom of the flex column instead of following text height */
 
     padding-top:18px;
 
     border-top:1px solid rgba(255,255,255,.08);
-
 }
-
 .bottom span{
 
     font-size:10px;
