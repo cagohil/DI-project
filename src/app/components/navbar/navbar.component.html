@@ -1,20 +1,16 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
 
     <div class="nav-logo">
-        <img src="./DI_LOGO_WHITE_LONG_FLAT.png" alt="" />
+       <img src="./DI_LOGO_WHITE_LONG_FLAT.png" alt="Digital Interiors" width="115" height="37">
     </div>
 
     <!-- Mobile Toggle -->
 
-    <button class="menu-toggle" (click)="isMenuOpen=!isMenuOpen">
-
-        <span [class.open]="isMenuOpen"></span>
-
-        <span [class.open]="isMenuOpen"></span>
-
-        <span [class.open]="isMenuOpen"></span>
-
-    </button>
+   <button class="menu-toggle" (click)="isMenuOpen=!isMenuOpen" aria-label="Toggle navigation menu" [attr.aria-expanded]="isMenuOpen">
+    <span [class.open]="isMenuOpen" aria-hidden="true"></span>
+    <span [class.open]="isMenuOpen" aria-hidden="true"></span>
+    <span [class.open]="isMenuOpen" aria-hidden="true"></span>
+</button>
 
 
     <ul class="nav-links" [class.show]="isMenuOpen">
