@@ -348,18 +348,29 @@
         letter-spacing:2px;
     }
 
-    .feature-bar{
-        background: #121212;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
+  .feature-bar{
+    background: #121212;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    grid-template-columns: 1fr;   /* one column on mobile */
+}
 
     /* stacked single column: underline dividers instead of the
        2-col span rule */
-    .item{
-        padding:30px 20px;
-        grid-column: auto;
-    }
+  .item{
+    padding: 30px 20px;
+    grid-column: auto;
+
+    /* stack icon above text, centered */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.item h2{
+    margin-bottom: 6px;
+}
 
     .item::after,
     .item::before{
